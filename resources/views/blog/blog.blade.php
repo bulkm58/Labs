@@ -38,8 +38,9 @@
 
 	<!-- Header section -->
 <header class="header-section">
-	<div class="logo">
-		<img src="img/logo.png" alt=""><!-- Logo -->
+	<div class="logo"><a href="{{route('welcome')}}">
+		<img src="img/logo.png"  alt=""><!-- Logo -->
+	</a>
 	</div>
 	<!-- Navigation -->
 	<div class="responsive"><i class="fa fa-bars"></i></div>
