@@ -98,7 +98,8 @@
 					</div>
 				</div>
 				<div class="text-center mt60">
-					<a href="" class="site-btn">Browse</a>
+					<a href="#testi" class="site-btn js-scrollTo">Browse</a>
+					
 				</div>
 				<!-- popup video -->
 				<div class="intro-video">
@@ -123,12 +124,12 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-4">
-					<div class="section-title left">
+					<div class="section-title left" id="testi">
 						<h2>What our clients say</h2>
 					</div>
 					<div class="owl-carousel" id="testimonial-slide">
 						<!-- single testimonial -->
-						<div class="testimonial">
+						<div class="testimonial" >
 							<span>‘​‌‘​‌</span>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
 							<div class="client-info">
@@ -333,10 +334,10 @@
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
 						</div>
 					</div>
-				</div>
+				</div> 
 			</div>
 			<div class="text-center">
-				<a href="" class="site-btn">Browse</a>
+				<a href="#team" class="site-btn btn-2 js-scrollTo">Browse</a>
 			</div>
 		</div>
 	</div>
@@ -344,9 +345,9 @@
 
 
 	<!-- Team Section -->
-	<div class="team-section spad">
+	<div class="team-section spad" >
 		<div class="overlay"></div>
-		<div class="container">
+		<div class="container" id="team">
 			<div class="section-title">
 				<h2>Get in <span>the Lab</span> and  meet the team</h2>
 			</div>

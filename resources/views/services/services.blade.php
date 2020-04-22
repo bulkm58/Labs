@@ -155,8 +155,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="text-center">
-				<a href="" class="site-btn">Browse</a>
+			<div class="text-center ">
+				<a href="#services" class="site-btn js-scrollTo">Browse</a>
 			</div>
 		</div>
 	</div>
@@ -164,7 +164,7 @@
 
 
 	<!-- features section -->
-	<div class="team-section spad">
+	<div class="team-section spad" id="services">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="section-title">
@@ -243,15 +243,15 @@
 				</div>
 			</div>
 			<div class="text-center mt100">
-				<a href="" class="site-btn">Browse</a>
-			</div>
+				<a href="#ServiceCard" class="site-btn js-scrollTo">Browse</a>		
+				</div>
 		</div>
 	</div>
 	<!-- features section end-->
 
 
 	<!-- services card section-->
-	<div class="services-card-section spad">
+	<div class="services-card-section spad" id="ServiceCard">
 		<div class="container">
 			<div class="row">
 				<!-- Single Card -->
@@ -314,6 +314,7 @@
 		</div>
 	</div>
 	<!-- newsletter section end-->
+	
 
 
 

@@ -14,9 +14,12 @@
                 <p class="con-item">hello@company.com</p>
             </div>
             <!-- contact form -->
+            <div class="form">
+                <div id="sendmessage">Your message has been sent. Thank you!</div>
+                <div id="errormessage"></div>
             <div class="col-md-6 col-pull">
-                <form class="form-class" id="con_form">
-                    <div class="row">
+            <form action="{{route('save')}}" class="form-class" id="con_form">
+                    <div class="form-row">
                         <div class="col-sm-6">
                             <input type="text" name="name" placeholder="Your name">
                         </div>
