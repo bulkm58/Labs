@@ -7,8 +7,9 @@
     <title>Document</title>
 </head>
 <body>
+    Bonjour {{request()->input('nom')}}
      Votre mail a bien été envoyé
-
-     résumé de votre message: {{$msg}}
+    <br>
+     résumé de votre message: {{request()->input('message')}}
 </body>
 </html>

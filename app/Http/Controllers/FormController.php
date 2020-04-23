@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Form;
-use App\Mail\ContactMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\MessageMail;
 
 class FormController extends Controller
 {
@@ -44,10 +44,20 @@ class FormController extends Controller
         $form->email = $request->input('email');
         $form->message = $request->input('message');
 
-
         $form->save();
-        Mail::to('bryan.londot@hotmail.com')->send(new ContactMail($form->msg));
-        return redirect()->route('welcome');
+
+        $name =$request->input('nom');
+
+        $email =$request->input('email');
+
+        $subject =$request->input('subject');
+
+        $message =$request->input('message');
+
+
+        Mail::to('bryan.londot@hotmail.com')->send(new MessageMail($request));
+
+        return redirect()->back();
     }
 
     /**
