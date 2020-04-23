@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Contact;
+use App\Form;
+use App\Mail\ContactMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
-class ContactController extends Controller
+class FormController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view ('contact.contact');
+        //
     }
 
     /**
@@ -35,17 +37,26 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        // 
+        $form =new Form();
 
+        $form->nom = $request->input('nom');
+        $form->subject = $request->input('subject');
+        $form->email = $request->input('email');
+        $form->message = $request->input('message');
+
+
+        $form->save();
+        Mail::to('bryan.londot@hotmail.com')->send(new ContactMail($form->msg));
+        return redirect()->route('welcome');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Contact  $contact
+     * @param  \App\Form  $form
      * @return \Illuminate\Http\Response
      */
-    public function show(Contact $contact)
+    public function show(Form $form)
     {
         //
     }
@@ -53,10 +64,10 @@ class ContactController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Contact  $contact
+     * @param  \App\Form  $form
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact)
+    public function edit(Form $form)
     {
         //
     }
@@ -65,10 +76,10 @@ class ContactController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Contact  $contact
+     * @param  \App\Form  $form
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contact $contact)
+    public function update(Request $request, Form $form)
     {
         //
     }
@@ -76,10 +87,10 @@ class ContactController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Contact  $contact
+     * @param  \App\Form  $form
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact)
+    public function destroy(Form $form)
     {
         //
     }

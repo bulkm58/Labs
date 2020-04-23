@@ -20,7 +20,7 @@ Route::get('/services','ServiceController@index')->name('services');
 Route::get('/contact','ContactController@index')->name('contact');
 Route::get('/blog','BlogController@index')->name('blog');
 
-Route::get('/save','WelcomeController@index')->name('save');
+Route::post('/save','FormController@store')->name('save');
 
 Auth::routes();
 
