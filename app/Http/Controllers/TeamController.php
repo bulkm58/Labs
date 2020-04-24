@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Welcome;
+use App\Team;
 use App\User;
 use Illuminate\Http\Request;
 
-class WelcomeController extends Controller
+class TeamController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,8 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        $CEO = User::where('role_id','=', 1)->first();
-        $teams = User::inRandomOrder()->where('role_id','!=', 4)->where('role_id','!=', 1)->take(2)->get();
-        return view ('welcome.welcome',compact('teams','CEO'));
-
+        $team=User::find(1);
+        return view('welcome.welcome',compact('team'));
     }
 
     /**
@@ -45,10 +43,10 @@ class WelcomeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Welcome  $welcome
+     * @param  \App\Team  $team
      * @return \Illuminate\Http\Response
      */
-    public function show(Welcome $welcome)
+    public function show(Team $team)
     {
         //
     }
@@ -56,10 +54,10 @@ class WelcomeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Welcome  $welcome
+     * @param  \App\Team  $team
      * @return \Illuminate\Http\Response
      */
-    public function edit(Welcome $welcome)
+    public function edit(Team $team)
     {
         //
     }
@@ -68,10 +66,10 @@ class WelcomeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Welcome  $welcome
+     * @param  \App\Team  $team
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Welcome $welcome)
+    public function update(Request $request, Team $team)
     {
         //
     }
@@ -79,10 +77,10 @@ class WelcomeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Welcome  $welcome
+     * @param  \App\Team  $team
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Welcome $welcome)
+    public function destroy(Team $team)
     {
         //
     }
