@@ -35,7 +35,7 @@
   <tbody>
       @foreach ( $testi as $item)
       <tr>
-      <td><img class="w-25" src="{{asset('storage/'.$item->photo)}}"></td>
+      <td><img class="avatar" src="{{asset('storage/'.$item->photo)}}"></td>
       <td>{{$item->auteur}}</td>
       <td>{{$item->role}}</td>
       <td> {{$item->comm}}</td>

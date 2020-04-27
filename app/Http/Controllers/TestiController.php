@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Testi;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class TestiController extends Controller
@@ -37,7 +38,14 @@ class TestiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $testi = new testi();
+        $photo=Storage::disk('public')->put('',$request->file('photo'));
+        $testi->auteur = $request->input('auteur');
+        $testi->role = $request->input('role');
+        $testi->comm = $request->input('comm');
+        $testi->photo = $photo;
+        $testi->save();
+        return  redirect()->back();
     }
 
     /*
