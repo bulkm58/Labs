@@ -18,6 +18,7 @@ class CreateFootersTable extends Migration
             $table->timestamps();
             $table->string('texte');
             $table->string("lien");
+            $table->string("textLien");
         });
     }
 

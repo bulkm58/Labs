@@ -3,7 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Welcome;
+use App\Header;
+use App\ImgHeader;
+use App\About;
 use App\User;
+use App\Promo;
+use App\Contact;
+use App\Footer;
+use App\Testi;
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
@@ -15,9 +22,18 @@ class WelcomeController extends Controller
      */
     public function index()
     {
+        $testi = Testi::orderby('id', 'desc')->take(6)->get();
+
+        
         $CEO = User::where('role_id','=', 1)->first();
         $teams = User::inRandomOrder()->where('role_id','!=', 4)->where('role_id','!=', 1)->take(2)->get();
-        return view ('welcome.welcome',compact('teams','CEO'));
+        $header = Header::all();
+        $about = About::all();
+        $imgHeader = ImgHeader::all();
+        $promo = Promo::all();
+        $contactSection = Contact::all();
+        $footer = Footer::find(1);
+        return view('welcome.welcome', compact("header", "imgHeader", "about", "promo", "contactSection", "footer",'teams','CEO','testi'));
 
     }
 

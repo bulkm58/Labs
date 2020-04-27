@@ -37,23 +37,24 @@
 
 
 	<!-- Header section -->
-<header class="header-section">
-	<div class="logo"><a href="{{route('welcome')}}">
-		<img src="img/logo.png"  alt=""><!-- Logo -->
-	</a>
-	</div>
-	<!-- Navigation -->
-	<div class="responsive"><i class="fa fa-bars"></i></div>
-	<nav>
-		<ul class="menu-list">
-			<li><a href="{{route('welcome')}}">Home</a></li>
-			<li><a href="{{route('services')}}">Services</a></li>
-		<li class="active"><a href="{{route('blog')}}">Blog</a></li>
-			<li ><a href="{{route('contact')}}">Contact</a></li>
-			<li><a href="{{route('home')}}">Login</a></li>
-		</ul>
-	</nav>
-</header>
+	<header class="header-section">
+		<div class="logo">
+			@foreach ($header as $item)
+			<img src="{{asset("storage/".$item->logo)}}" height="40px" alt="">
+			@endforeach <!-- Logo -->
+		</div>
+		<!-- Navigation -->
+		<div class="responsive"><i class="fa fa-bars"></i></div>
+		<nav>
+			<ul class="menu-list">
+				<li><a href="{{route('index')}}">Home</a></li>
+				<li><a href="{{route('services.index')}}">Services</a></li>
+				<li class="active"><a href="{{route('blog.index')}}">Blog</a></li>
+				<li><a href="{{route('contact.index')}}">Contact</a></li>
+				<li><a href="{{route('home')}}">Login</a></li>
+			</ul>
+		</nav>
+	</header>
 <!-- Header section end -->
 
 
@@ -64,7 +65,7 @@
 			<div class="page-info">
 				<h2>Blog</h2>
 				<div class="page-links">
-					<a href="{{route('welcome')}}">Home</a>
+					<a href="{{route('index')}}">Home</a>
 					<span>Blog</span>
 				</div>
 			</div>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateContactsTable extends Migration
+class CreateImgHeadersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,10 @@ class CreateContactsTable extends Migration
      */
     public function up()
     {
-        Schema::create('contacts', function (Blueprint $table) {
+        Schema::create('img_headers', function (Blueprint $table) {
             $table->id();
+            $table->string('img');
             $table->timestamps();
-            $table->string('description');
-            $table->string('bureau');
-            $table->string('adresse');
-            $table->string('villecode');
-            $table->string('tel');
-            $table->string('mail');
-
-
-
-
         });
     }
 
@@ -36,6 +27,6 @@ class CreateContactsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contacts');
+        Schema::dropIfExists('img_headers');
     }
 }

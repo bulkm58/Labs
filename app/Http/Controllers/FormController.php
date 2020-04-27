@@ -57,7 +57,7 @@ class FormController extends Controller
 
         Mail::to('bryan.londot@hotmail.com')->send(new MessageMail($request));
 
-        return redirect()->back();
+        return redirect()->to(url()->previous() . '#confirmail')->with('send', 'Votre message a bien été envoyé !');
     }
 
     /**

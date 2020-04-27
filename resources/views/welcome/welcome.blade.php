@@ -1,45 +1,44 @@
 @extends('layouts.master')
-
 @section('content')
-
-<!-- Header section -->
-<header class="header-section">
-	<div class="logo"><a href="{{route('welcome')}}">
-		<img src="img/logo.png"  alt=""><!-- Logo -->
-	</a>
-	</div>
-	<!-- Navigation -->
-	<div class="responsive"><i class="fa fa-bars"></i></div>
-	<nav>
-		<ul class="menu-list">
-			<li class="active"><a href="{{route('welcome')}}">Home</a></li>
-			<li><a href="{{route('services')}}">Services</a></li>
-			<li><a href="{{route('blog')}}">Blog</a></li>
-			<li ><a href="{{route('contact')}}">Contact</a></li>
-			<li><a href="{{route('home')}}">Login</a></li>
-		</ul>
-	</nav>
-</header>
-<!-- Header section end -->
-
-
+		<!-- Header section -->
+		<header class="header-section">
+			<div class="logo">
+				@foreach ($header as $item)
+				<img src="{{asset("storage/".$item->logo)}}" height="40px" alt="">
+				@endforeach <!-- Logo -->
+			</div>
+			<!-- Navigation -->
+			<div class="responsive"><i class="fa fa-bars"></i></div>
+			<nav>
+				<ul class="menu-list">
+					<li class="active"><a href="{{route('index')}}">Home</a></li>
+					<li><a href="{{route('services.index')}}">Services</a></li>
+					<li><a href="{{route('blog.index')}}">Blog</a></li>
+					<li><a href="{{route('contact.index')}}">Contact</a></li>
+					<li><a href="{{route('home')}}">Login</a></li>
+				</ul>
+			</nav>
+		</header>
+		<!-- Header section end -->
 	<!-- Intro Section -->
 	<div class="hero-section">
 		<div class="hero-content">
 			<div class="hero-center">
-				<img src="img/big-logo.png" alt="">
-				<p>Get your freebie template now!</p>
+				@foreach ($header as $item)
+				<img src="{{asset("storage/".$item->logo)}}" height="230px" alt="">
+				<p>{{$item->texte}}</p>
+				@endforeach
 			</div>
 		</div>
 		<!-- slider -->
 		<div id="hero-slider" class="owl-carousel">
-			<div class="item  hero-item" data-bg="img/01.jpg"></div>
-			<div class="item  hero-item" data-bg="img/02.jpg"></div>
+			@foreach ($imgHeader as $item)
+				<div class="item  hero-item" data-bg="{{asset("storage/".$item->img)}}"></div>
+				<div class="item  hero-item" data-bg="{{asset("storage/".$item->img)}}"></div>
+			@endforeach
 		</div>
 	</div>
 	<!-- Intro Section -->
-
-
 	<!-- About section -->
 	<div class="about-section">
 		<div class="overlay"></div>
@@ -81,145 +80,74 @@
 			</div>
 		</div>
 		<!-- card section end-->
-
-
 		<!-- About contant -->
 		<div class="about-contant">
 			<div class="container">
+				@foreach ($about as $item)
 				<div class="section-title">
-					<h2>Get in <span>the Lab</span> and discover the world</h2>
+					<h2>{{$item->titre}}</h2>
 				</div>
 				<div class="row">
 					<div class="col-md-6">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequat ante ac congue. Quisque porttitor porttitor tempus. Donec maximus ipsum non ornare vporttitor porttitorestibulum. Sed libero nibh, feugiat at enim id, bibendum sollicitudin arcu.</p>
+						<p>{{$item->texteGauche}} Lorem ipsum </p>
 					</div>
 					<div class="col-md-6">
-						<p>Cras ex mauris, ornare eget pretium sit amet, dignissim et turpis. Nunc nec maximus dui, vel suscipit dolor. Donec elementum velit a orci facilisis rutrum. Nam convallis vel erat id dictum. Sed ut risus in orci convallis viverra a eget nisi. Aenean pellentesque elit vitae eros dignissim ultrices. Quisque porttitor porttitorlaoreet vel risus et luctus.</p>
+						<p>{{$item->texteDroite}}</p>
 					</div>
 				</div>
 				<div class="text-center mt60">
-					<a href="#testi" class="site-btn js-scrollTo">Browse</a>
-					
+					<a href="{{route('services.index')}}" class="site-btn">Browse</a>
 				</div>
 				<!-- popup video -->
 				<div class="intro-video">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">
 							<img src="img/video.jpg" alt="">
-							<a href="https://www.youtube.com/watch?v=JgHfx2v9zOU" class="video-popup">
+							<a href="{{$item->video}}" class="video-popup">
 								<i class="fa fa-play"></i>
 							</a>
 						</div>
 					</div>
 				</div>
+				@endforeach
 			</div>
 		</div>
 	</div>
 	<!-- About section end -->
-
-
 	<!-- Testimonial section -->
 	<div class="testimonial-section pb100">
 		<div class="test-overlay"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-4">
-					<div class="section-title left" id="testi">
+					<div class="section-title left">
 						<h2>What our clients say</h2>
 					</div>
 					<div class="owl-carousel" id="testimonial-slide">
 						<!-- single testimonial -->
-						<div class="testimonial" >
-							<span>‘​‌‘​‌</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-							<div class="client-info">
-								<div class="avatar">
-									<img src="img/avatar/01.jpg" alt="">
-								</div>
-								<div class="client-name">
-									<h2>Michael Smith</h2>
-									<p>CEO Company</p>
-								</div>
-							</div>
-						</div>
-						<!-- single testimonial -->
+						@foreach ($testi as $item)
+							
+						
 						<div class="testimonial">
-							<span>‘​‌‘​‌</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
+							<span>'​‌'​‌</span>
+						<p>{{$item->comm}}</p>
 							<div class="client-info">
 								<div class="avatar">
-									<img src="img/avatar/02.jpg" alt="">
+									<img src="{{'storage/'.$item->photo}}" alt="">
 								</div>
 								<div class="client-name">
-									<h2>Michael Smith</h2>
-									<p>CEO Company</p>
+								<h2>{{$item->auteur}}</h2>
+								<p>{{$item->role}}</p>
 								</div>
 							</div>
 						</div>
-						<!-- single testimonial -->
-						<div class="testimonial">
-							<span>‘​‌‘​‌</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-							<div class="client-info">
-								<div class="avatar">
-									<img src="img/avatar/01.jpg" alt="">
-								</div>
-								<div class="client-name">
-									<h2>Michael Smith</h2>
-									<p>CEO Company</p>
-								</div>
-							</div>
-						</div>
-						<!-- single testimonial -->
-						<div class="testimonial">
-							<span>‘​‌‘​‌</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-							<div class="client-info">
-								<div class="avatar">
-									<img src="img/avatar/02.jpg" alt="">
-								</div>
-								<div class="client-name">
-									<h2>Michael Smith</h2>
-									<p>CEO Company</p>
-								</div>
-							</div>
-						</div>
-						<!-- single testimonial -->
-						<div class="testimonial">
-							<span>‘​‌‘​‌</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-							<div class="client-info">
-								<div class="avatar">
-									<img src="img/avatar/01.jpg" alt="">
-								</div>
-								<div class="client-name">
-									<h2>Michael Smith</h2>
-									<p>CEO Company</p>
-								</div>
-							</div>
-						</div>
-						<!-- single testimonial -->
-						<div class="testimonial">
-							<span>‘​‌‘​‌</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-							<div class="client-info">
-								<div class="avatar">
-									<img src="img/avatar/02.jpg" alt="">
-								</div>
-								<div class="client-name">
-									<h2>Michael Smith</h2>
-									<p>CEO Company</p>
-								</div>
-							</div>
-						</div>
+						@endforeach
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- Testimonial section end-->
-
-
 	<!-- Services section -->
 	<div class="services-section spad">
 		<div class="container">
@@ -334,27 +262,24 @@
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
 						</div>
 					</div>
-				</div> 
+				</div>
 			</div>
 			<div class="text-center">
-				<a href="#team" class="site-btn btn-2 js-scrollTo">Browse</a>
+				<a href="{{route('services.index')}}" class="site-btn">Browse</a>
 			</div>
 		</div>
 	</div>
 	<!-- services section end -->
-
-
 	<!-- Team Section -->
-	<div class="team-section spad" >
+	<div class="team-section spad">
 		<div class="overlay"></div>
-		<div class="container" id="team">
+		<div class="container">
 			<div class="section-title">
 				<h2>Get in <span>the Lab</span> and  meet the team</h2>
 			</div>
 			<div class="row">
 				<!-- single member -->
 				@foreach ($teams as $index=>$user)
-
             @if ($index==0)
             <!-- single member -->
             <div class="col-sm-4">
@@ -381,36 +306,31 @@
                     <h3>{{$user->role->role}}</h3>
                 </div>
             </div>
-
             @endif
             @endforeach
-				
 			</div>
 		</div>
 	</div>
 	<!-- Team Section end-->
-
-
 	<!-- Promotion section -->
 	<div class="promotion-section">
 		<div class="container">
 			<div class="row">
+				@foreach ($promo as $item)
 				<div class="col-md-9">
-					<h2>Are you ready to stand out?</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est.</p>
+					<h2>{{$item->titre}}</h2>
+					<p>{{$item->texte}}</p>
 				</div>
+				@endforeach
 				<div class="col-md-3">
 					<div class="promo-btn-area">
-						<a href="#form" class="site-btn btn-2 js-scrollTo">Browse</a>
+						<a href="#form" class="js-scrollTo site-btn btn-2">Browse</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
     <!-- Promotion section end-->
-    
     @include('components.form')
     @include('components.footer')
-
-    
 @endsection

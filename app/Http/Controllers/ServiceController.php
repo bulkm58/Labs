@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Service;
+use App\Header;
+use App\Footer;
+use App\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class ServiceController extends Controller
 {
@@ -14,7 +19,11 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        return view ('services.services');
+        $header = Header::all();
+        $service=Service::all();
+        $contactSection = Contact::all();
+        $footer = Footer::find(1);
+        return view ('services.services', compact("header",'service','contactSection','footer'));
     }
 
     /**
@@ -24,7 +33,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        // 
     }
 
     /**
@@ -35,7 +44,12 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $service = New Service();
+        // $service->logo=$request->input("logo");
+        // $service->titre=$request->input("titre");
+        // $service->texte=$request->input("texte");
+        // $service->save();
+        // return redirect()->back();
     }
 
     /**

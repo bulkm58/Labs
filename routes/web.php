@@ -13,20 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Welcome Page
+Route::resource("/", "WelcomeController");
+Route::resource("/contact", "ContactController");
+Route::resource("/services", "ServiceController");
+Route::resource("/blog","BlogController");
 
-Route::get('/','WelcomeController@index')->name('welcome');
-Route::get('/services','ServiceController@index')->name('services');
-Route::get('/contact','ContactController@index')->name('contact');
-Route::get('/blog','BlogController@index')->name('blog');
 
-Route::post('/save','FormController@store')->name('save');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-// 
 Auth::routes();
 
 Route::get('/home', function() {
@@ -34,5 +28,22 @@ Route::get('/home', function() {
 })->name('home')->middleware('auth');
 
 
+Route::post('/save','FormController@store')->name('save');
 
+
+Route::get('/header', 'HeaderController@indexview')->name('header.edit');
+Route::get('/overview', 'OverviewController@indexview')->name('overview.edit');
+Route::get('/about', 'AboutController@indexview')->name('about.edit');
+Route::get('/testi', 'TestiController@indexview')->name('testi.edit');
+Route::get('/promo', 'PromoController@indexview')->name('promo.edit');
+Route::get('/contactSection','ContactSectionController@indexview')->name('contact.edit');
+Route::get('/footer', 'FooterController@indexview')->name('footer.edit');
+Route::get('/delete/{id}', 'TestiController@destroy')->name('delete');
+
+Route::resource("header","HeaderController");
+Route::resource("about","AboutController");
+Route::resource("testi","TestiController");
 Route::resource('team','TeamController');
+Route::resource("promo","PromoController");
+Route::resource("contactSection","ContactSectionController");
+Route::resource("footer","FooterController");

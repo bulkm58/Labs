@@ -209,42 +209,42 @@ return [
 
     'menu' => [[
         'text'    => 'Homepage',
-        'icon'    => 'fas fa-fw fa-share',
+        'icon'    => 'fas fa-house-user',
         'submenu' => [
             [
                 'text' => 'Header',
-                'url'  => 'admin/header',
-                'icon' => 'far fa-fw fa-file',
+                'url'  => '/header',
+                'icon' => 'fas fa-fw fa-images',
             ],
             [
                 'text' => 'Service Overview',
-                'url'  => 'admin/header',
-                'icon' => 'far fa-fw fa-file',
+                'url'  => '/overview',
+                'icon' => 'fas fa-fw fa-poll-h',
             ],
             [
                 'text' => 'About',
-                'url'  => 'admin/header',
-                'icon' => 'far fa-fw fa-file',
+                'url'  => '/about',
+                'icon' => 'fas fa-fw fa-info',
             ],
             [
                 'text' => 'Testimonials',
-                'url'  => 'admin/header',
-                'icon' => 'far fa-fw fa-file',
+                'url'  => '/testi',
+                'icon' => 'fas fa-fw fa-comment-dots',
             ],
             [
                 'text' => 'Promotion',
-                'url'  => 'admin/header',
-                'icon' => 'far fa-fw fa-file',
+                'url'  => '/promo',
+                'icon' => 'fas fa-fw fa-ad',
             ],
             [
                 'text' => 'Contact',
-                'url'  => 'admin/header',
-                'icon' => 'far fa-fw fa-file',
+                'url'  => '/contactSection',
+                'icon' => 'fas fa-fw fa-map-marker-alt',
             ],
             [
                 'text' => 'Footer',
-                'url'  => 'admin/header',
-                'icon' => 'far fa-fw fa-file',
+                'url'  => '/footer',
+                'icon' => 'fas fa-fw fa-link',
             ],
         ],
     ],
@@ -283,7 +283,7 @@ return [
     ],
     [
         'text'    => 'Blog',
-        'icon'    => 'fas fa-fw fa-share',
+        'icon'    => 'fas fa-fw fa-newspaper',
         'submenu' => [
             [
                 'text' => 'Section 1',

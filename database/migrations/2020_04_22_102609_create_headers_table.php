@@ -17,9 +17,9 @@ class CreateHeadersTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('logo');
-            $table->string('image');
+            
             $table->string('texte');
-            $table->string('nav');
+            
 
 
 
