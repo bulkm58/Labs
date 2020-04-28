@@ -2,17 +2,10 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Header;
-use App\Footer;
-use App\Contact;
-use App\Newsletter;
-use App\SeeServ;
+use App\Map;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-
-class ServiceController extends Controller
+class MapController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,18 +14,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-
-        
-        $seeServ = SeeServ::latest()->take(9)->get();
-
-        $newsletter = Newsletter::all();
-
-
-        $header = Header::all();
-        
-        $contactSection = Contact::all();
-        $footer = Footer::find(1);
-        return view ('services.services', compact("header",'contactSection','footer','seeServ'));
+        $map = Mapp::all();
+        return view('backoffice.map', compact("map"));
     }
 
     /**
@@ -42,7 +25,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        // 
+        //
     }
 
     /**
@@ -53,16 +36,16 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Service  $service
+     * @param  \App\Map  $map
      * @return \Illuminate\Http\Response
      */
-    public function show(Service $service)
+    public function show(Map $map)
     {
         //
     }
@@ -70,10 +53,10 @@ class ServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Service  $service
+     * @param  \App\Map  $map
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service $service)
+    public function edit(Map $map)
     {
         //
     }
@@ -82,10 +65,10 @@ class ServiceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Service  $service
+     * @param  \App\Map  $map
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request, Map $map)
     {
         //
     }
@@ -93,10 +76,10 @@ class ServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Service  $service
+     * @param  \App\Map  $map
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Service $service)
+    public function destroy(Map $map)
     {
         //
     }

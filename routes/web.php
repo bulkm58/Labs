@@ -38,7 +38,9 @@ Route::get('/testi', 'TestiController@indexview')->name('testi.edit');
 Route::get('/promo', 'PromoController@indexview')->name('promo.edit');
 Route::get('/contactSection','ContactSectionController@indexview')->name('contact.edit');
 Route::get('/footer', 'FooterController@indexview')->name('footer.edit');
-Route::get('/delete/{id}', 'TestiController@destroy')->name('delete');
+Route::get('/newsletter', 'NewsletterController@indexview')->name('newsletter.edit');
+Route::get('/map', 'MapController@indexview')->name('map.edit');
+
 
 Route::resource("header","HeaderController");
 Route::resource("about","AboutController");
@@ -47,3 +49,4 @@ Route::resource('team','TeamController');
 Route::resource("promo","PromoController");
 Route::resource("contactSection","ContactSectionController");
 Route::resource("footer","FooterController");
+Route::resource("newsletter","NewsletterController");

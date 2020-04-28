@@ -1,26 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Testi;
-use Illuminate\Support\Facades\Storage;
+use App\Newsletter;
 use Illuminate\Http\Request;
 
-class TestiController extends Controller
+class NewsletterController extends Controller
 {
-    /*
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $testi=Testi::all();
-        return view('backoffice.testiEdit',compact('testi'));
+        $newsletter = Newsletter::all();
+        return view('backoffice.newsletter', compact('newsletter'));
     }
 
-
-    /*
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -30,7 +27,7 @@ class TestiController extends Controller
         //
     }
 
-    /*
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -38,17 +35,13 @@ class TestiController extends Controller
      */
     public function store(Request $request)
     {
-        $testi = new testi();
-        $photo=Storage::disk('public')->put('',$request->file('photo'));
-        $testi->auteur = $request->input('auteur');
-        $testi->role = $request->input('role');
-        $testi->comm = $request->input('comm');
-        $testi->photo = $photo;
-        $testi->save();
-        return  redirect()->back();
+        $newsletter = new Newsletter();
+        $newsletter->mail = $request->input('mail');
+        $newsletter->save();
+        return  redirect()->to(url()->previous() . '#news')->with('news', 'Vous vous êtes bien abonné à la newsletter');
     }
 
-    /*
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -59,33 +52,27 @@ class TestiController extends Controller
         //
     }
 
-    /*
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Testi $testi)
+    public function edit($id)
     {
-        return view('backoffice.editComm', compact('testi'));
+        //
     }
-    /*
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Testi $testi)
+    public function update(Request $request, $id)
     {
-        $photo=Storage::disk('public')->put('',$request->file('photo'));
-        $testi->auteur = $request->input('auteur');
-        $testi->role = $request->input('role');
-        $testi->comm = $request->input('comm');
-        $testi->photo = $photo;
-
-        $testi->save();
-        return redirect()->route('testi.index');
+        //
     }
 
     /**
@@ -94,9 +81,8 @@ class TestiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Testi $testi)
+    public function destroy($id)
     {
-        $testi->delete();
-        return redirect()->route('testi.index');
+        //
     }
 }

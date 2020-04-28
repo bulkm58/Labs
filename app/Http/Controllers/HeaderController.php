@@ -94,8 +94,10 @@ class HeaderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(ImgHeader $header)
     {
-        //
+        Storage::disk('public')->delete($header->img);
+        $header->delete();
+        return redirect()->route('header.index');
     }
 }

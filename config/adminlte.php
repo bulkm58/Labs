@@ -217,11 +217,6 @@ return [
                 'icon' => 'fas fa-fw fa-images',
             ],
             [
-                'text' => 'Service Overview',
-                'url'  => '/overview',
-                'icon' => 'fas fa-fw fa-poll-h',
-            ],
-            [
                 'text' => 'About',
                 'url'  => '/about',
                 'icon' => 'fas fa-fw fa-info',
@@ -253,18 +248,13 @@ return [
         'icon'    => 'fas fa-fw fa-share',
         'submenu' => [
             [
-                'text' => 'Service 1',
-                'url'  => 'admin/header',
-                'icon' => 'far fa-fw fa-file',
-            ],
-            [
-                'text' => 'Service 2',
-                'url'  => 'admin/header',
+                'text' => 'Service',
+                'url'  => '/overview',
                 'icon' => 'far fa-fw fa-file',
             ],
             [
                 'text' => 'Newsletter',
-                'url'  => 'admin/header',
+                'url'  => '/newsletter',
                 'icon' => 'far fa-fw fa-file',
             ],
             
@@ -276,7 +266,7 @@ return [
         'submenu' => [
             [
                 'text' => 'Maps',
-                'url'  => 'admin/header',
+                'url'  => '/map',
                 'icon' => 'far fa-fw fa-file',
             ],
         ],
