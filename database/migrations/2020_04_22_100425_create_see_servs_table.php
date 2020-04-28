@@ -19,6 +19,7 @@ class CreateSeeServsTable extends Migration
             $table->string("logo");
             $table->string("titre");
             $table->string("texte");
+            $table->string("texteCourt");
 
         });
     }

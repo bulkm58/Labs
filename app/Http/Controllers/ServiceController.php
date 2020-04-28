@@ -24,6 +24,7 @@ class ServiceController extends Controller
 
         
         $seeServ = SeeServ::latest()->take(9)->get();
+        $features = SeeServ::latest()->take(3)->get();
 
         $newsletter = Newsletter::all();
 
@@ -32,7 +33,7 @@ class ServiceController extends Controller
         
         $contactSection = Contact::all();
         $footer = Footer::find(1);
-        return view ('services.services', compact("header",'contactSection','footer','seeServ'));
+        return view ('services.services', compact("header",'contactSection','footer','seeServ','features'));
     }
 
     /**
